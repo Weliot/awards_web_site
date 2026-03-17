@@ -27,11 +27,8 @@ jobs:
       - name: Gerar o Build da aplicação
         run: npm run build
 
-      - name: Gerar o deploy da aplicação
-        run: npm run deploy
-
       - name: Deploy para o GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist # IMPORTANTE: Se usar Create React App, mude isso para ./build
+          publish_dir: ./dist
