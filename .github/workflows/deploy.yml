@@ -27,9 +27,12 @@ jobs:
       - name: Gerar o Build da aplicação
         run: npm run build
 
+      - name: Listar arquivos do build
+        run: ls -la dist/
+
       - name: Deploy para o GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          cname: ""
+          force_orphan: true
